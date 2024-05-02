@@ -48,6 +48,7 @@ function toCompletionItem(tag: Attribute): CompletionItem {
   return {
     label: tag.name,
     kind: CompletionItemKind.Value,
+    insertText: tag.valueSet !== 'v' ? `${tag.name}="$1"` : tag.name,
     documentation: {
       kind: 'markdown',
       value: renderHtmlEntry(tag),
